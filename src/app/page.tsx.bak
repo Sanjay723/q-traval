@@ -1,0 +1,94 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const DISTRICTS = [
+  { id: "thiruvananthapuram", name: "Thiruvananthapuram", image: "https://images.unsplash.com/photo-1600077106724-946750eeaf3c" },
+  { id: "kollam", name: "Kollam", image: "https://images.unsplash.com/photo-1629285483876-54d4b9bdbd2a" },
+  { id: "pathanamthitta", name: "Pathanamthitta", image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2" },
+  { id: "alappuzha", name: "Alappuzha", image: "https://images.unsplash.com/photo-1582972236019-ea4af5ffe587" },
+  { id: "kottayam", name: "Kottayam", image: "https://images.unsplash.com/photo-1591851211814-bb4db6c6d4b4" },
+  { id: "idukki", name: "Idukki", image: "https://images.unsplash.com/photo-1599640842225-85d111c60e6b" },
+  { id: "ernakulam", name: "Ernakulam", image: "https://images.unsplash.com/photo-1589286092789-6c5c13f73cfd" },
+  { id: "thrissur", name: "Thrissur", image: "https://images.unsplash.com/photo-1629468201519-0c0b6c5a5f0a" },
+  { id: "palakkad", name: "Palakkad", image: "https://images.unsplash.com/photo-1609838462115-0b6e4b0a0d6c" },
+  { id: "malappuram", name: "Malappuram", image: "https://images.unsplash.com/photo-1621416894569-0f39c9a9f4d5" },
+  { id: "kozhikode", name: "Kozhikode", image: "https://images.unsplash.com/photo-1624862760645-7e8d5c9d7f2a" },
+  { id: "wayanad", name: "Wayanad", image: "https://images.unsplash.com/photo-1599901216780-7bdf62eae6a6" },
+  { id: "kannur", name: "Kannur", image: "https://images.unsplash.com/photo-1604137809304-24b3eec9f8b0" },
+  { id: "kasaragod", name: "Kasaragod", image: "https://images.unsplash.com/photo-1625231334168-35067c5e1d18" },
+];
+
+export default function KeralaPage() {
+  return (
+    <main className="bg-white">
+      {/* HERO SECTION */}
+      <section className="relative min-h-screen">
+        <Image
+          src="https://images.unsplash.com/photo-1588411393236-d2524cca1196"
+          alt="Kerala"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 flex flex-col p-6">
+          <div className="max-w-7xl mx-auto text-white">
+            <span className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full">
+              Discover Kerala 🌴
+            </span>
+
+            <h1 className="text-5xl font-bold mt-4 leading-tight">
+              Explore God’s Own Country
+            </h1>
+
+            <p className="mt-5">
+              From misty hill stations to serene backwaters, Kerala offers unforgettable
+              experiences across all 14 districts. Choose your destination and start exploring.
+            </p>
+
+            <div className="mt-6 flex gap-4">
+              <button className="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black">
+                Watch Demo
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-20 max-w-7xl mx-auto flex-1">
+            <h2 className="text-3xl font-bold text-center text-white">
+              Explore Kerala Districts 🔥
+            </h2>
+            <p className="text-center text-white mt-2">
+              Click on a district to explore tourist places and attractions.
+            </p>
+
+            <div className="flex gap-6 overflow-x-auto mt-10 pb-4">
+              {DISTRICTS.map((district) => (
+                <Link
+                  key={district.id}
+                  href={`/kerala/${district.id}`}
+                  className="flex-none w-64 group bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden"
+                >
+                  <div className="relative h-32">
+                    <Image
+                      src={district.image}
+                      alt={district.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition"
+                    />
+                  </div>
+
+                  <div className="p-4 text-center">
+                    <h3 className="font-semibold text-lg">
+                      {district.name}
+                    </h3>
+                    <span className="text-green-600 text-sm">
+                      Explore →
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
