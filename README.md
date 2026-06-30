@@ -48,3 +48,5 @@ Configuring NGINX blocks for efficient request handling.
 Managing Linux file permissions and service configurations.
 
 Understanding the flow of traffic in a cloud-hosted environment.
+
+My test project
